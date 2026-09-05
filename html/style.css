@@ -1,117 +1,271 @@
-header {
-    background-color: #ec268f;
-    color: #fff;
-    padding: 10px;
-    /* Lesson 2 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#logo {
-    height: 60px;
-    padding: 0px 20px;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 5px;
-    border-radius: 15px;
-    /* Lesson 2 */
-    border-bottom: 2px solid transparent;
-}
+/* -------------------------
+   PAGE
+------------------------- */
 
 body {
     margin: 0;
     padding: 0;
 }
 
-header > div {
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+header {
+    background-color: #234B36;
+    color: white;
+    padding: 10px;
+
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* Keeps header above video */
+    position: relative;
+    z-index: 10;
 }
 
-#video {
-    width: 100%;
+
+.header-logo {
+    display: flex;
+    align-items: center;
 }
+
+
+#logo {
+    height: 60px;
+    padding: 0 20px;
+}
+
+
+/* -------------------------
+   NAVIGATION
+------------------------- */
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+
+    border-radius: 15px;
+    border-bottom: 2px solid transparent;
+}
+
+
+a:hover {
+    border-color: white;
+    transition: 1s;
+}
+
+
+/* -------------------------
+   VIDEO BANNER
+------------------------- */
+
+.banner {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* YouTube background video */
+
+#video {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 177.78vh;
+    height: 56.25vw;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    transform: translate(-50%, -50%);
+
+    border: none;
+
+    z-index: 0;
+
+    /*
+       Prevents mouse clicks on YouTube.
+       Makes it behave more like a background.
+    */
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   VIDEO TEXT OVERLAY
+------------------------- */
 
 #overlay {
     color: white;
     font-size: 30pt;
+
     position: absolute;
+
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
-    
-    /* Lesson 1 - HW1 */
-    background-color: rgba(0,0,0,.3);
+
+    z-index: 2;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
     padding: 30px;
+
     border-radius: 20px;
+
     text-align: center;
+
+    width: 70%;
 }
 
-/* Lesson 1 - HW1 */
-#overlay-button{
-    padding: 14px; 
-    background-color: rgba(0, 0, 0, .5); 
-    border-radius: 10px;  
+
+/* Overlay Button */
+
+#overlay-button {
+    display: inline-block;
+
+    padding: 14px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    border-radius: 10px;
+
     cursor: pointer;
-    transition: .8s;
+
+    transition: 0.8s;
 }
 
-/* Lesson 1 - Bonus */
-::selection {
-    background: #a88c65;
-    color: white;
+
+#overlay-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Lesson 2 */
+
+/* -------------------------
+   HEADINGS
+------------------------- */
+
 h1 {
     text-align: center;
 }
 
+
+/* -------------------------
+   FLAVORS SECTION
+------------------------- */
+
 .info {
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     text-align: center;
 }
 
+
 .info > div {
     width: 25%;
+
     margin-bottom: 40px;
 }
+
 
 .info-image {
     width: 160px;
 }
 
+
+/* -------------------------
+   FOOTER
+------------------------- */
+
+footer {
+    background-color: #8cc540;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+
+/* -------------------------
+   TEXT SELECTION
+------------------------- */
+
+::selection {
+    background: #a88c65;
+    color: white;
+}
+
+
+/* -------------------------
+   DESKTOP
+------------------------- */
+
 @media (min-width: 900px) {
+
     header {
         flex-direction: row;
         justify-content: space-between;
     }
+
 
     .info {
         flex-direction: row;
         justify-content: space-between;
     }
 
+
     .info > div {
         width: 30%;
     }
 }
 
-footer {
-    background-color: #8cc540;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
 
-a:hover{
-    border-color: white;
-    transition: 1s;
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-width: 600px) {
+
+    .banner {
+        height: 400px;
+    }
+
+
+    #overlay {
+        font-size: 20pt;
+        padding: 20px;
+        width: 80%;
+    }
+
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 }
